@@ -1,0 +1,219 @@
+.product-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-height: 480px;
+    padding: 14px 0 10px;
+    cursor: pointer;
+
+    &--disabled {
+        cursor: default;
+
+        &::before {
+            position: absolute;
+            z-index: 0;
+            top: 200px;
+            left: 4px;
+            width: 253px;
+            height: 295px;
+            content: '';
+            opacity: .5;
+            border-bottom-left-radius: 12px;
+            background-color: @light-gray;
+        }
+    }
+}
+
+.product-info__wrapper {
+    display: flex;
+    background: @white;
+
+    &--header {
+        width: 275px;
+        margin-left: 45px;
+        border-top: 4px solid @blue;
+        border-right: 4px solid @blue;
+        border-top-right-radius: 12px;
+    }
+
+    &--origin {
+        flex-direction: column;
+        width: 320px;
+        height: 440px;
+        margin-top: -4px;
+        padding: 20px 12px 10px 9px;
+        border: 4px solid @blue;
+        border-top: none;
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        background: @white url('../img/funbox_cat.png') no-repeat -28px 167px;
+    }
+}
+
+.product-info__angle {
+    z-index: 1;
+    width: 45px;
+    height: 45px;
+    margin-top: -4px;
+    margin-left: -22.5px;
+    transform: skewX(-45deg);
+    border-top: 4px solid @blue;
+    border-left: 4px solid @blue;
+    background: @white;
+}
+
+.product-info__order {
+    font-size: 16px;
+    z-index: 1;
+    margin: 0 0 0 -23px;
+    padding-top: 17px;
+    padding-bottom: 6px;
+    color: @dark-gray;
+
+    &--selected {
+        font-size: 16px;
+        display: none;
+        color: @pink;
+    }
+}
+
+.product-info__title {
+    font-size: 48px;
+    font-weight: bold;
+    display: block;
+    padding-top: 10px;
+    padding-right: 48px;
+    padding-bottom: 20px;
+    padding-left: 28px;
+
+    & span {
+        font-size: 24px;
+        display: block;
+        margin: 0;
+        margin-top: 15px;
+        padding-bottom: 5px;
+        order: 2;
+    }
+}
+
+.product-info__text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: auto;
+    padding-left: 34px;
+    color: @dark-gray;
+    order: 3;
+
+    & span {
+        display: block;
+    }
+}
+
+.product-info__weight {
+    font-size: 42px;
+    line-height: 22px;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    color: @white;
+    border-radius: 50%;
+    background-color: @blue;
+    order: 4;
+    align-self: flex-end;
+
+    & span {
+        font-size: 21px;
+        line-height: 22px;
+        display: block;
+        padding-top: 9px;
+    }
+}
+
+.product-info:hover .product-info__weight {
+    background-color: @light-blue;
+}
+
+.product-info:hover .product-info__wrapper,
+.product-info:hover .product-info__angle {
+    border-color: @light-blue;
+}
+
+.products__item .product-info--disabled .product-info__wrapper,
+.products__item .product-info--disabled .product-info__angle {
+    border-color: @gray;
+    background-color: @light-gray;
+}
+
+.product-info--disabled:hover .product-info__wrapper,
+.product-info--disabled:hover .product-info__angle {
+    border-color: @gray;
+}
+
+.product-info--disabled .product-info__weight {
+    z-index: 1;
+    background-color: @gray;
+}
+
+.product-info--disabled .product-info__text,
+.product-info--disabled .product-info__order,
+.product-info--disabled .product-info__title {
+    color: @gray;
+}
+
+.product-info--disabled:hover .product-info__weight {
+    background-color: @gray;
+}
+
+.products__item .product-info--selected .product-info__wrapper,
+.products__item .product-info--selected .product-info__angle {
+    border-color: @pink;
+}
+
+.product-info--selected .product-info__weight {
+    background-color: @pink;
+}
+
+.product-info--selected:hover .product-info__weight {
+    background-color: @pink;
+}
+
+.products__item .product-info--selected:hover .product-info__weight {
+    background-color: @pink;
+}
+
+.product-info--selected:hover .product-info__wrapper,
+.product-info--selected:hover .product-info__angle {
+    border-color: @pink;
+}
+
+.product-info--selected .product-info__order {
+    display: none;
+}
+
+.product-info--selected .product-info__order--selected {
+    display: block;
+}
+
+.product-info--selected:hover .product-info__order--selected-hover {
+    display: block;
+}
+
+.product-info--selected~.products__task {
+    display: none;
+}
+
+.product-info--selected~.products__task--selected {
+    display: block;
+}
+
+.product-info--disabled~.products__task {
+    display: none;
+}
+
+.product-info--disabled~.products__task--disabled {
+    display: block;
+}
